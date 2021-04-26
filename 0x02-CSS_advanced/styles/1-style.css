@@ -1,0 +1,5 @@
+/* fluid scrolling
+add ti the <html> element to enable smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
