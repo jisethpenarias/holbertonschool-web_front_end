@@ -96,10 +96,6 @@ body {
     color: var(--nav-item-link-hover);
 }
 
-.visually-hidden {
-    display: none;
-}
-
 a:link {
     color: var(--text-color);
     text-decoration: none;
@@ -115,6 +111,10 @@ a:hover {
 
 a:active {
     background-color: var(--color-light-grey);
+}
+
+.visually-hidden {
+    display: none;
 }
 
 .card-category {
