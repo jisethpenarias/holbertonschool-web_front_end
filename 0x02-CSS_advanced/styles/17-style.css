@@ -38,12 +38,11 @@
     --section-header-padding: 0 0 3rem;
     --section-body-padding: 0 0 3rem;
     --section-footer-padding: 3rem 0 0;
-
     --section-footer-align: center;
     --footer-padding: 5rem 0 1rem;
 }
-
-*, *:before, *:after{
+  
+*, *:before, *:after {
     box-sizing: border-box;
 }
 
@@ -65,15 +64,15 @@ a:link {
     text-decoration: none;
 }
 
-a:visited{
+a:visited {
     font-style: italic;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
-a:active{
+a:active {
     background-color: var(--color-light-grey);
 }
 
@@ -91,12 +90,13 @@ a:active{
 
 .section-header {
     text-align: var(--section-header-align);
+    padding: var(--section-header-padding);
 }
 
 .section-body {
     padding: var(--section-body-padding);
 }
-  
+
 .section-footer {
     padding: var(--section-footer-padding);
     text-align: var(--section-footer-align);
