@@ -61,12 +61,6 @@ html {
     font-size: 62.5%;
 }
 
-[data-section-theme=“dark”] {
-    --text-color: var(--color-white);
-    --section-title-color: var(--color-white);
-    background-color: var(--color-black);
-}
-
 body {
     color: var(--text-color);
     font-family: var(--font-family-base);
@@ -161,6 +155,12 @@ a:active {
     text-transform: var(--section-tagline-transform);
     font-weight: var(--font-weight-bold);
     margin: var(--section-tagline-margin);
+}
+
+[data-section-theme="dark"] {
+    --text-color: var(--color-white);
+    --section-title-color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 .container {
