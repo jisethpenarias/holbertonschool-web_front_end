@@ -1,0 +1,7 @@
+// Columns and operator
+$columns: 4;
+@for $i from 1 through $columns {
+    .col-#{$i} {
+      width: (100% / $i);
+    }
+}
