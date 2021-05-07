@@ -346,12 +346,19 @@
       ============================= */
   
   .section-hero {
-    background-position: 75% 0;
-    background-repeat: no-repeat;
-    background-size: 90rem auto;
-    background-color: #010101;
+    position: relative;
+    margin-top: -8.5rem;
   }
-  
+
+  .section-hero .section-body {
+    padding: 10rem 4rem;
+  }
+
+  .section-hero .section-category {
+    color: var(--color-white);
+    text-transform: uppercase;
+  }
+
   .hero-homepage{
     background-position: 75% 0;
     background-repeat: no-repeat;
@@ -516,3 +523,4 @@
     font-size: 10rem;
     z-index: -1;
   }
+  
