@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "title": "asdfadf",
+      "author": "fasdf",
+      "id": 1
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

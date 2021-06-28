@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 6</title>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+        crossorigin="anonymous">
+        </script>
+    </head>
+
+    <body>
+        <script type="application/javascript">
+        function createFamilyTree() {
+            $("body").append("<table><thead><tr><th>Firstname</th><th>Lastname</th></tr></thead></table>")
+                .find("table").first().append("<tbody></tbody>");
+        };
+        function addNewMember(firstName, lastName) {
+            let row = "<tr><td>" + firstName + "</td><td>" + lastName + "</td><td>(x)</td></tr>";
+            $("body").find("tbody").first().append(row)
+            let i = $("tbody").find("tr").last()
+            i.find("td").click(function() {
+                i.remove();
+            });
+            i.find("td").last().css("background-color", "orange");
+
+            if (position === 'before') {
+                $("tbody").prepend("tr");
+            } else {
+                $("tbody").append("tr");
+              }
+            }
+            function createForm() {
+                let select = '<select><option value="before">Before</option><option value="after">After</option></select>'
+                let inputsLabel = '<input type="text"></input><input type="text"></input>'
+                let submitbutton = '<input type="submit"></input>'
+                let form = inputsLabel + select + submitbutton;
+
+                function buttonsubmit() {
+                    let firstName = $("input:nth-of-type(1)").val();
+                    let lastName = $("input:nth-of-type(2)").val();
+                    let beforeAfter = $("option:selected").first().text();
+                    
+                    addNewMember(firstName, lastName, beforeAfter);
+                }
+                $("table").first().before(form);
+                $("body").find("input").last().click(buttonsubmit);
+            }
+            createFamilyTree();
+            createForm();
+        </script>
+    </body>
+</html>
