@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="form-cookies">
+        <h2>Login to the website</h2>
+        <input type="text" id="firstname" placeholder="firstname">
+        <input type="text" id="email" placeholder="email">
+        <button onclick="login()">Log me in</button>
+    </div>
+    <script>
+        function getCookie(name) {
+            let cookie = {};
+            decodeURIComponent(document.cookie).split(';').forEach(function(elem) {
+                let [k,v] = elem.split('=');
+                cookie[k.trim()] = v;
+            })
+            return cookie[name];
+        }
+
+        function setCookies() {
+            let daysExpiration = new Date(
+                Date.now() + 
+                1000 *
+                60 *
+                60 *
+                24 *
+                10
+            );
+            document.cookie = `firstname=${document.getElementById('firstname').value}; expires=${daysExpiration.toGMTString()}`;
+            document.cookie = `email=${document.getElementById('email').value}; expires=${daysExpiration.toGMTString()}`;
+        }
+
+        function login() {
+            setCookies();
+            showWelcomeMessageOrForm();
+        }
+
+        function showForm() {
+            const welcomeMessage = document.getElementsByTagName("h2")[1];
+            if (welcomeMessage) {
+                welcomeMessage.parentNode.removeChild(welcomeMessage);
+            }
+            document.getElementById('form-cookies').style.display = 'block';
+        }
+
+        function hideForm() {
+            document.getElementById('form-cookies').style.display = 'none';
+        }
+
+        function deleteCookiesAndShowForm() {
+            document.cookie = "firstname=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+            document.cookie = "email=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+            showForm();
+        }
+
+        function showWelcomeMessageOrForm() {
+            let cookie = getCookie('firstname');
+
+            if (cookie) 
+            {
+                let text;
+
+                hideForm();
+                const welcomeMessage = document.createElement('h2');
+                text = document.createTextNode(`Welcome: ${cookie}`);
+                welcomeMessage.appendChild(text);
+
+                const logout = document.createElement('a');
+                text = document.createTextNode('(logout)');
+                logout.appendChild(text);
+                logout.style.fontWeight = 'normal';
+                logout.style.fontStyle = 'italic';
+                logout.style.marginLeft = '10px'
+                logout.onclick = function() {
+                    deleteCookiesAndShowForm();
+                }
+                welcomeMessage.appendChild(logout);
+                document.body.appendChild(welcomeMessage);
+            } 
+            else {
+                showForm();
+            }
+        }
+        showWelcomeMessageOrForm();
+    </script>
+</body>
+</html>
